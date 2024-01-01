@@ -1,0 +1,397 @@
+:root {
+	--primary: aquamarine;
+	--bg: #010101;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	text-decoration: none;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "josefin sans", sans-serif;
+	background-color: var(--primary);
+	color: bisque;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* navbar */
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.4rem 7%;
+	background-color: rgba(1, 1, 1, 0.8);
+	border-bottom: 1px solid #9b744d;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+}
+
+.navbar .navbar-logo {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: #d65555;
+}
+
+.navbar .navbar-logo span {
+	color: blue;
+	font-style: italic;
+}
+
+.navbar .navbar-nav a {
+	color: #fff;
+	display: inline-block;
+	font-size: 1.7rem;
+	margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+	color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+	content: "";
+	display: block;
+	padding-bottom: 0.5rem;
+	border-bottom: 0.1rem solid var(--primary);
+	transform: scaleX(0);
+	transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+	transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+	color: white;
+	margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+	color: var(--primary);
+}
+
+#humburger-menu {
+	display: none;
+}
+
+.content-text {
+	padding: 5px;
+	font-size: 1rem;
+	align-items: center;
+	margin-top: 5rem;
+	text-align: center;
+	text-decoration: line;
+	outline: auto;
+	margin-bottom: 3rem;
+}
+
+.card {
+	width: 200px;
+	padding: 5px;
+	box-shadow: 5px 3px 5px rgb(16, 15, 15);
+	border-radius: 5px;
+	margin-top: 6rem;
+	margin-left: 1rem;
+	margin-bottom: 2rem;
+	margin-right: 1rem;
+	text-align: center;
+}
+
+.card:hover {
+	box-shadow: 2px 2px 5px rgb(5, 11, 11);
+	transition: 0.3s;
+}
+
+.img-card {
+	max-width: 200px;
+	max-height: 200px;
+	overflow: hidden;
+	margin-top: 1.5v;
+}
+
+.img {
+	width: 100%;
+}
+
+.harga {
+	color: black;
+	text-align: center;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+.nama {
+	color: black;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+.nama-menu {
+	color: black;
+	margin-top: 0.5rem;
+	/* margin-bottom: 1rem; */
+}
+.btn-block {
+	width: 100%;
+	background: rgb(12, 40, 40);
+	text-align: center;
+	display: inline-block;
+	padding: 1rem 1rem;
+	font-size: 1rem;
+	border-radius: 1rem;
+}
+
+.btn-block:hover {
+	background-color: #d65555;
+	border-style: solid;
+	color: rgb(10, 26, 26);
+	transition: 0.3s;
+}
+
+.btn-order {
+	color: white;
+	text-decoration: none;
+}
+
+.span {
+	font-size: 1.5rem;
+}
+
+/* media queries */
+
+/* laptop */
+@media (max-width: 1366px) {
+	html {
+		font-size: 75%;
+	}
+}
+
+/* tablet */
+@media (max-width: 768px) {
+	html {
+		font-size: 62.5%;
+	}
+
+	#humburger-menu {
+		display: inline-block;
+	}
+
+	.navbar .navbar-nav {
+		position: absolute;
+		top: 100%;
+		right: -100%;
+		background-color: white;
+		width: 20rem;
+		height: 100vh;
+		transition: 0, 3s;
+	}
+
+	.navbar .navbar-nav.active {
+		right: 0;
+	}
+	.navbar .navbar-nav a {
+		color: var(--bg);
+		display: block;
+		margin: 1.5rem;
+		padding: 0.5rem;
+		font-size: 1.5rem;
+	}
+	.navbar .navbar-nav a::after {
+		transform-origin: 0 0;
+	}
+
+	.navbar .navbar-nav a:hover::after {
+		transform: scaleX(0.3);
+	}
+
+	.about .row {
+		flex-wrap: wrap;
+	}
+
+	.about .row .about-img img {
+		height: 24rem;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.about .row .content {
+		padding: 0;
+	}
+
+	.about .row .content h3 {
+		margin-top: 1rem;
+		font-size: 2rem;
+	}
+
+	.about .row .content p {
+		font-size: 1.6rem;
+	}
+
+	.menu p {
+		font-size: 1.5rem;
+	}
+
+	.contact .row {
+		flex-wrap: wrap;
+	}
+
+	.contact .row .map {
+		height: 30rem;
+	}
+
+	.contact .row form {
+		padding-top: 0;
+	}
+}
+
+/* handphone */
+
+@media (max-width: 450px) {
+	html {
+		font-size: 55%;
+	}
+	.menu p {
+		font-size: 2rem;
+	}
+	.navbar .navbar-nav {
+		position: absolute;
+		top: 100%;
+		right: -100%;
+		background-color: #010101;
+		width: 20rem;
+		height: 100vh;
+		transition: 0, 3s;
+	}
+
+	.navbar .navbar-nav.active {
+		right: 0;
+	}
+	.navbar .navbar-nav a {
+		color: var(--bg);
+		display: block;
+		margin: 1.5rem;
+		padding: 0.5rem;
+		font-size: 1rem;
+	}
+
+	.content-menu {
+		font-size: 75%;
+		align-items: center;
+		margin-top: 7rem;
+		text-align: center;
+		text-decoration: line;
+		outline: auto;
+		margin-right: 1rem;
+	}
+	.card {
+		width: 150px;
+		padding: 10px;
+		box-shadow: 5px 3px 5px rgb(0, 0, 0);
+		border-radius: 5px;
+		margin-top: 9.5rem;
+		margin-left: 2.2rem;
+		margin-bottom: 2rem;
+		margin-right: 3rem;
+		text-align: center;
+	}
+}
+
+/* IPHONE SE */
+@media (max-width: 667px) {
+	html {
+		font-size: 50%;
+	}
+	.menu p {
+		font-size: 1rem;
+	}
+
+	.content-menu {
+		font-size: 45%;
+		align-items: center;
+		margin-top: 7rem;
+		text-align: center;
+		text-decoration: line;
+		outline: auto;
+		margin-right: 1rem;
+	}
+	.card {
+		width: 125px;
+		padding: 9px;
+		box-shadow: 5px 3px 5px rgb(0, 0, 0);
+		border-radius: 5px;
+		margin-top: 9.5rem;
+		margin-left: 2rem;
+		margin-bottom: 2rem;
+		margin-right: 3rem;
+		text-align: center;
+	}
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.4rem 7%;
+		background-color: rgba(1, 1, 1, 0.8);
+		border-bottom: 1px solid #9b744d;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 9999;
+	}
+
+	.navbar .navbar-logo {
+		font-size: 2rem;
+		font-weight: 700;
+		color: #d65555;
+	}
+
+	.navbar .navbar-logo span {
+		color: blue;
+		font-style: italic;
+	}
+
+	.navbar .navbar-nav a {
+		color: #fff;
+		display: inline-block;
+		font-size: 1.7rem;
+		margin: 0 1rem;
+	}
+
+	.navbar .navbar-nav a:hover {
+		color: var(--primary);
+	}
+
+	.navbar .navbar-nav a::after {
+		content: "";
+		display: block;
+		padding-bottom: 0.5rem;
+		border-bottom: 0.1rem solid var(--primary);
+		transform: scaleX(0);
+		transition: 0.2s linear;
+	}
+
+	.navbar .navbar-nav a:hover::after {
+		transform: scaleX(0.5);
+	}
+
+	.navbar .navbar-extra a {
+		color: white;
+		margin: 0 0.5rem;
+	}
+
+	.navbar .navbar-extra a:hover {
+		color: var(--primary);
+	}
+}
