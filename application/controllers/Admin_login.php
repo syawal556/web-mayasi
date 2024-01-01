@@ -167,7 +167,7 @@ class Admin_login extends CI_Controller
                 );
 
                 
-                $this->tambah_user->update_data($data, 'user');
+                $this->Tambah_user->update_data($data, 'user');
                 $this->session->set_flashdata('message','<div class="alert alert-success alert-dismissible fade show" role="alert" text-center>
                 <strong>Success!</strong> Data Berhasil di edit.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">

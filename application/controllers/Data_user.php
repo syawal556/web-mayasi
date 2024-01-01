@@ -8,7 +8,7 @@ class Data_user extends CI_Controller
         {
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();
-            $data['tampilkan'] =$this->tambah_user->get_data('user')->result();
+            $data['tampilkan'] =$this->Tambah_user->get_data('user')->result();
             $data['title'] ='Data user';
             $this->load->view('templates/header',$data);
             $this->load->view('templates/sidebar', $data);

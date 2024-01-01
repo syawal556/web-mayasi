@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class tambah_user extends CI_Model
+class Tambah_user extends CI_Model
 {
 
    public function get_data($table)

@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('tambah_user','M_menu','model_invoice','model_transfer');
+$autoload['model'] = array('Tambah_user','M_menu','Model_invoice','Model_transfer');

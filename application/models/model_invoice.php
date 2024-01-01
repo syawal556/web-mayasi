@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class model_invoice extends CI_Model
+class Model_invoice extends CI_Model
 {
     public function index()
     {

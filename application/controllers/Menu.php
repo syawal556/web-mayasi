@@ -7,9 +7,9 @@ class Menu extends CI_Controller
 
     {
            parent::__construct();
-           $this->load->model('tambah_user');
+           $this->load->model('Tambah_user');
            $this->load->model('M_menu');
-           $this->load->model('model_transfer');
+           $this->load->model('Model_transfer');
            $this->load->helper(array('form', 'url'));
     }
 
@@ -59,7 +59,7 @@ class Menu extends CI_Controller
     public function hapus_menu($id)
     {
             $where = array ('id' => $id);
-            $this->tambah_user->delete($where, 'daftar_menu');
+            $this->Tambah_user->delete($where, 'daftar_menu');
             $this->session->set_flashdata('message','<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Success!</strong> Data Berhasil Dihapus.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -82,7 +82,7 @@ class Menu extends CI_Controller
     public function transfer_selesai()
     {         
         
-       $is_processed = $this->model_transfer->index();
+       $is_processed = $this->Model_transfer->index();
         if($is_processed) {
             $data['title'] = 'Pesanan telah Diproses';
             $this->load->view('template_pesanan/start', $data);

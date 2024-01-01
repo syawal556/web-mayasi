@@ -106,7 +106,7 @@ class Auth extends CI_Controller
 
     public function pembayaran()
     {
-        $data ['pesanan'] = $this->model_invoice->tampil_data();
+        $data ['pesanan'] = $this->Model_invoice->tampil_data();
         $data['title'] = 'Jumlah pembayaran anda';
         $this->load->view('template_pesanan/start', $data);
         $this->load->view('admin/pembayaran', $data);
@@ -131,7 +131,7 @@ class Auth extends CI_Controller
     public function proses_pesanan()
     {         
         
-       $is_processed = $this->model_invoice->index();
+       $is_processed = $this->Model_invoice->index();
         if($is_processed) {
             $this->cart->destroy();
             $this->session->set_flashdata('message','<div class="alert alert-danger alert-dismissible fade show" role="alert" text-center>
@@ -167,9 +167,9 @@ class Auth extends CI_Controller
 
     public function struk_admin($id_pesanan)
     {   
-        $data ['pesanan'] = $this->model_invoice->tampil_data();
-        $data['invoice'] = $this->model_invoice->ambil_id_pesanan($id_pesanan);
-        $data['detail'] = $this->model_invoice->ambil_id_detail($id_pesanan);
+        $data ['pesanan'] = $this->Model_invoice->tampil_data();
+        $data['invoice'] = $this->Model_invoice->ambil_id_pesanan($id_pesanan);
+        $data['detail'] = $this->Model_invoice->ambil_id_detail($id_pesanan);
         $data['title'] ='Struk Pesanan';
         $this->load->view('admin/cetak_struk_pelanggan', $data);
     }

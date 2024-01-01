@@ -7,7 +7,7 @@ class Login_user extends CI_Controller
         public function __construct()
         {
             parent::__construct();
-            $this->load->model('model_invoice');
+            $this->load->model('Model_invoice');
         }
         public function index()
         {       
@@ -45,7 +45,7 @@ class Login_user extends CI_Controller
 
         public function index_menu()
         {
-            $data ['pesanan'] = $this->model_invoice->belum_bayar();
+            $data ['pesanan'] = $this->Model_invoice->belum_bayar();
             $data['user'] = $this->db->get_where('user', ['email' =>
             $this->session->userdata('email')])->row_array();    
             $data['title'] ='Daftar Pesanan Konsumen';
@@ -60,8 +60,8 @@ class Login_user extends CI_Controller
         public function detail_pesanan_user($id_pesanan)
          {
         
-                $data['invoice'] = $this->model_invoice->ambil_id_pesanan($id_pesanan);
-                $data['detail'] = $this->model_invoice->ambil_id_detail($id_pesanan);
+                $data['invoice'] = $this->Model_invoice->ambil_id_pesanan($id_pesanan);
+                $data['detail'] = $this->Model_invoice->ambil_id_detail($id_pesanan);
                 $data['user'] = $this->db->get_where('user', ['email' =>
                 $this->session->userdata('email')])->row_array();    
                 $data['title'] ='Detail Pesanan';
@@ -89,7 +89,7 @@ class Login_user extends CI_Controller
                  'id_pesanan' => $id_pesanan,
                  'status_pesanan' => 1,
              );
-             $this->model_invoice->pesanan_status($data);
+             $this->Model_invoice->pesanan_status($data);
              $this->session->set_flashdata('message','<div class="alert alert-warning alert-dismissible fade show" role="alert">
                  <strong>Success!</strong> Pesanan Telah Diproses, Mohon teliti untuk Memproses Pesanan pelanggan!!!.
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -104,8 +104,8 @@ class Login_user extends CI_Controller
          public function pesanan_telah_diproses()
     {
         
-        $data['telah_diproses'] = $this->model_invoice->telah_diproses();
-        $data ['pesanan'] = $this->model_invoice->tampil_data();
+        $data['telah_diproses'] = $this->Model_invoice->telah_diproses();
+        $data ['pesanan'] = $this->Model_invoice->tampil_data();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();    
         $data['title'] ='Daftar pesanan pelanggan';

@@ -7,7 +7,7 @@ class User extends CI_Controller
         function __construct()
         {
                parent::__construct();
-               $this->load->model('tambah_user');
+               $this->load->model('Tambah_user');
                $this->load->model('M_laporan');
                $this->load->model('Model_invoice');
         }
@@ -21,7 +21,7 @@ class User extends CI_Controller
                 $data['tampilMenu'] = $this->M_menu->ambil_data('daftar_menu')->result();
                 $data['user'] = $this->db->get_where('user', ['email' =>
                 $this->session->userdata('email')])->row_array();
-                $data['tampilkan'] =$this->tambah_user->get_data('user')->result();     
+                $data['tampilkan'] =$this->Tambah_user->get_data('user')->result();     
                 $data['title'] ='Dashboard admin';
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sidebar', $data);
@@ -37,7 +37,7 @@ class User extends CI_Controller
         public function delete($id)
         {
                 $where = array ('id' => $id);
-                $this->tambah_user->delete($where, 'user');
+                $this->Tambah_user->delete($where, 'user');
                 $this->session->set_flashdata('message','<div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Success!</strong> Data Berhasil Dihapus.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -54,7 +54,7 @@ class User extends CI_Controller
         $data['tampilMenu'] = $this->M_menu->ambil_data('daftar_menu')->result();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['tampilkan'] =$this->tambah_user->get_data('user')->result();
+        $data['tampilkan'] =$this->Tambah_user->get_data('user')->result();
         $data['title'] ='Tambah menu baru';
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
