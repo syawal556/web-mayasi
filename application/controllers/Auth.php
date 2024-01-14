@@ -11,8 +11,8 @@ class Auth extends CI_Controller
 
     public function index()
     {
-
-        $this->load->view('auth/index');
+        $data['daftarMenu'] = $this->M_menu->ambil_data()->result();
+        $this->load->view('auth/index', $data);
     }
     
 
@@ -50,6 +50,21 @@ class Auth extends CI_Controller
     
     $this->cart->insert($data);
     redirect('Auth/daftarMenu');
+
+    }
+    public function Tambah_pesanan($id)
+    {
+        $daftarMenu = $this->M_menu->temukan($id);
+        $data = array(
+            'id'      => $daftarMenu->id,
+            'qty'     => 1,
+            'price'   => $daftarMenu->harga_menu,
+            'name'    => $daftarMenu->nama_menu,
+           
+    );
+    
+    $this->cart->insert($data);
+    redirect('Auth/menu_utama');
 
     }
 
@@ -135,7 +150,7 @@ class Auth extends CI_Controller
         if($is_processed) {
             $this->cart->destroy();
             $this->session->set_flashdata('message','<div class="alert alert-danger alert-dismissible fade show" role="alert" text-center>
-                <strong>Success!</strong> Pesanan Telah Diproses.
+                Pesanan Telah Diterima, Mohon Tunggu Pelayan Menghampiri Anda!!!.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -172,6 +187,23 @@ class Auth extends CI_Controller
         $data['detail'] = $this->Model_invoice->ambil_id_detail($id_pesanan);
         $data['title'] ='Struk Pesanan';
         $this->load->view('admin/cetak_struk_pelanggan', $data);
+    }
+
+    public function after_cetak($id_pesanan)
+    {   
+        $data = array(
+            'id_pesanan' => $id_pesanan,
+            // 'status_bayar' => 5,
+            'status_pesanan' => 1,
+        );
+        $this->Model_invoice->update_struk($data);
+        $this->session->set_flashdata('message','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                 Pesanan Diproses, Mohon Teliti Untuk Memproses Pesanan!.
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+                 </div>');
+        redirect('Login_user/index_menu');
     }
 
 

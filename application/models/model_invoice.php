@@ -90,7 +90,22 @@ class Model_invoice extends CI_Model
     }
 
 
+    public function update_struk($data)
+    {
+        $this->db->where('id_pesanan', $data['id_pesanan']);
+        $this->db->update('tbl_pesanan', $data);
+    }
+
+
     public function telah_diproses()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_pesanan');
+        $this->db->where('status_pesanan=1');
+        $this->db->order_by('id_pesanan','DESC');
+        return $this->db->get()->result();
+    }
+    public function telah_diproses_user()
     {
         $this->db->select('*');
         $this->db->from('tbl_pesanan');

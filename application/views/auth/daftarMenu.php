@@ -20,6 +20,9 @@
           <a href="<?= base_url('Auth/pesanan/'.$daftar->id); ?>" class="btn-order"> <span class="span">Order</span> </a> -->
         </div>
          <?php  }?> 
+        <!-- <div class="btn-block">
+            <button type="button" class="btn btn-success swalDefaultSuccess" class="btn-order"> <span class="span">Order</span> </button>
+        </div> -->
         <div class="btn-block">
             <a href="<?= base_url('Auth/pesanan/'.$daftar->id); ?>" class="btn-order"> <span class="span">Order</span> </a>
         </div>
@@ -30,4 +33,21 @@
 </div>
 <?php endforeach; ?>
 
+<script src="<?= base_url('assets'); ?>/plugins2/sweetalert2/sweetalert2.min.js"></script>
+<script>
+  $(function() {
+                var Toast = Swal.mixin({
+                     toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                        });
 
+                        $('.swalDefaultSuccess').click(function() {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                        })
+                    });
+                });
+</script>

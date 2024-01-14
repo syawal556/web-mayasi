@@ -9,16 +9,16 @@
             <table class="table table-bordered  table table-sm text-center">    
             <div align="center">
                 <h2 class="text-center">Detail Pesanan </h2>
-                <div class="btn btn-success btn-sm mb-2 mr-2"> Nama Customer : <?php echo $invoice->nama_pelanggan ?></div>
-                <div class="btn btn-success btn-sm mb-2 mr-2 "> Nomor Meja : <?php echo $invoice->no_meja ?></div>
-                <?php if($invoice->order_id == 0) {?>
-                    <p  class="btn btn-danger btn-sm mb-2 mr-2" > Status bayar : Bayar Tunai</p>
+                <div class="badge badge-success btn-sm mb-2 mr-2"> Nama Customer : <?php echo $invoice->nama_pelanggan ?></div>
+                <div class="badge badge-success btn-sm mb-2 mr-2 "> Nomor Meja : <?php echo $invoice->no_meja ?></div>
+                <!-- <?php if($invoice->order_id == 0) {?>
+                    <p  class="badge badge-danger btn-sm mb-2 mr-2" > Status bayar : Bayar Tunai</p>
                     <?php } else{?>
-                        <p  class="btn btn-success btn-sm mb-2 mr-2" > Status bayar : Transfer</p>
-                        <?php  }?>
+                        <p  class="badge badge-success btn-sm mb-2 mr-2" > Status bayar : Transfer</p>
+                        <?php  }?> -->
                         
                     </div>        
-      <div class="btn btn-info btn-sm mb-2 mr-2 "> Catatan Pesanan : <?php echo $invoice->catatan ?></div>
+      <div class="badge badge-info btn-sm mb-2 mr-2 "> Catatan Pesanan : <?php echo $invoice->catatan ?></div>
 <tr class="text-gray-900">
         <!-- <th>Id Menu</th> -->
         <th>Nama Menu</th>

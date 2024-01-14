@@ -94,8 +94,11 @@
                        
                 <div class="row no-print">
                 <div class="col-12 p-3 ml-3">
-                <button  class="btn btn-primary btn-sm ml-2 mb-5" oncLick="window.print()"><i class="fas fa-print"></i> Print</button>
-                <a  class="btn btn-danger btn-sm text-center ml-2 mb-5" href="<?= base_url('Pesanan/index_pesanan'); ?>">Batal</a>
+                    <a href="<?= base_url('Auth/after_cetak/'.$invoice->id_pesanan); ?> "class="btn btn-success btn-sm ml-2 mb-5" oncLick="window.print()" onclick="return confirm('Apakan anda yakin akan menghapus data ini?')"><i class="fas fa-print"></i> Print</a>
+                <!-- <?php echo anchor ('Auth/after_cetak/'.$invoice->id_pesanan, ' <div class="btn btn-success btn-sm ml-2 mb-5" oncLick="window.print()" ><i class="fas fa-print"></i></div>') ?> -->
+                    <!-- <a href="" class="btn btn-primary btn-sm ml-2 mb-5" oncLick="window.print()"><i class="fas fa-print"></a> -->
+                <!-- <button  class="btn btn-primary btn-sm ml-2 mb-5" oncLick="window.print()"><i class="fas fa-print"></i> Print</button> -->
+                <a  class="btn btn-danger btn-sm text-center ml-2 mb-5" href="<?= base_url('Login_user/index_menu'); ?>">Batal</a>
                 </div>
                 </div>
                 </div>

@@ -258,36 +258,16 @@ body {
 
 /* handphone */
 
-@media (max-width: 450px) {
+@media (max-width: 896px) {
 	html {
 		font-size: 55%;
 	}
 	.menu p {
-		font-size: 2rem;
-	}
-	.navbar .navbar-nav {
-		position: absolute;
-		top: 100%;
-		right: -100%;
-		background-color: #010101;
-		width: 20rem;
-		height: 100vh;
-		transition: 0, 3s;
-	}
-
-	.navbar .navbar-nav.active {
-		right: 0;
-	}
-	.navbar .navbar-nav a {
-		color: var(--bg);
-		display: block;
-		margin: 1.5rem;
-		padding: 0.5rem;
 		font-size: 1rem;
 	}
 
 	.content-menu {
-		font-size: 75%;
+		font-size: 45%;
 		align-items: center;
 		margin-top: 7rem;
 		text-align: center;
@@ -296,15 +276,72 @@ body {
 		margin-right: 1rem;
 	}
 	.card {
-		width: 150px;
-		padding: 10px;
+		width: 125px;
+		padding: 9px;
 		box-shadow: 5px 3px 5px rgb(0, 0, 0);
 		border-radius: 5px;
 		margin-top: 9.5rem;
-		margin-left: 2.2rem;
+		margin-left: 2rem;
 		margin-bottom: 2rem;
 		margin-right: 3rem;
 		text-align: center;
+	}
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.4rem 7%;
+		background-color: rgba(1, 1, 1, 0.8);
+		border-bottom: 1px solid #9b744d;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 9999;
+	}
+
+	.navbar .navbar-logo {
+		font-size: 2rem;
+		font-weight: 700;
+		color: #d65555;
+	}
+
+	.navbar .navbar-logo span {
+		color: blue;
+		font-style: italic;
+	}
+
+	.navbar .navbar-nav a {
+		color: #fff;
+		display: inline-block;
+		font-size: 1.7rem;
+		margin: 0 1rem;
+	}
+
+	.navbar .navbar-nav a:hover {
+		color: var(--primary);
+	}
+
+	.navbar .navbar-nav a::after {
+		content: "";
+		display: block;
+		padding-bottom: 0.5rem;
+		border-bottom: 0.1rem solid var(--primary);
+		transform: scaleX(0);
+		transition: 0.2s linear;
+	}
+
+	.navbar .navbar-nav a:hover::after {
+		transform: scaleX(0.5);
+	}
+
+	.navbar .navbar-extra a {
+		color: white;
+		margin: 0 0.5rem;
+	}
+
+	.navbar .navbar-extra a:hover {
+		color: var(--primary);
 	}
 }
 

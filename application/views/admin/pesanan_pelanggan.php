@@ -61,7 +61,7 @@
                                         </td>
                                         <td> 
                                         <?php echo anchor ('Pesanan/detail_pesanan/'.$pesan->id_pesanan, ' <div class="btn btn-primary btn-sm"><i data-feather="chevrons-up"></i>Detail</div>') ?>
-                                        <?php echo anchor ('Pesanan/pesanan_batal/'.$pesan->id_pesanan, ' <div class="btn btn-danger btn-sm"><i data-feather="chevrons-up"></i>Batal</div>') ?>
+                                        <a href="<?= base_url('pesanan/pesanan_batal/'.$pesan->id_pesanan); ?>" class=" btn btn-danger btn-sm" onclick="return confirm('Apakan anda yakin akan menghapus data ini?')"><i data-feather="chevrons-up">Batal</i></a>
                                     </td>
                                     </tr>
                                         <?php endforeach; ?>

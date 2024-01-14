@@ -24,7 +24,7 @@
                                             <td><?= $tmp->akses_level?></td>
                                             <td>
                                             <button data-toggle="modal" data-target="#edit<?= $tmp->id ?>" class=" btn btn-warning btn-sm"><i data-feather="edit"></i></button>
-                                            <a href="<?= base_url('User/delete/' . $tmp ->id) ?>" class=" btn btn-danger btn-sm" onclick="return confirm('Apakan anda yakin akan menghapus data ini?')"><i data-feather="trash-2"></i></a>
+                                            <a href="<?= base_url('User/delete/' . $tmp ->id) ?>" class=" btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')"><i data-feather="trash-2"></i></a>
                                             </td>
                                         </tr>
                                     </thead>

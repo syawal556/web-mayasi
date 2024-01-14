@@ -39,6 +39,19 @@ class M_menu extends CI_Model
         }
   
     }
+    public function temukan($id)
+    {
+        $result = $this->db->where('id', $id)
+                            ->limit(1)
+                            ->get('daftar_menu');
+
+        if ($result->num_rows() > 0){
+            return $result->row();
+        }else {
+            return array();
+        }
+  
+    }
 
     public function edit_data_menu($data, $table)
     {
@@ -47,6 +60,11 @@ class M_menu extends CI_Model
 
 
     }
+    public function ambil_id_menu($id)
+    {
+       return $this->db->get_where('daftar_menu', ['id' => $id])->row_array();
+    }
+
 
 
 }

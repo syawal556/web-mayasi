@@ -7,7 +7,7 @@
             <div class="col-lg">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Tambah Menu Baru</h1>
+                <h1 class="h4 text-gray-900 mb-4">Tambah Menu Baru</h1>
                     </div>
                     <?php echo form_open_multipart('Menu/do_input');?>
                         <div class="form-group">
@@ -49,29 +49,3 @@
 
 </div>
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<?php echo form_open_multipart('menu/do_input');?>
-    <label for="nama_menu">Nama Menu:</label>
-    <input type="text" name="nama_menu" required>
-    <br><br>
-    <label for="harga_menu">Harga Menu:</label>
-    <input type="number" name="harga_menu" required>
-    <br><br>
-    <label for="keterangan">Keterangan:</label>
-    <textarea name="keterangan"></textarea>
-    <br><br>
-    <label for="gambar">Gambar:</label>
-    <input type="file" name="gambar" required>
-    <br><br>
-    <input type="submit" value="Simpan">
-</form>
-</body>
-</html> -->

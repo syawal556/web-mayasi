@@ -214,7 +214,7 @@ body {
 .menu p,
 .contact p {
 	text-align: center;
-	max-width: 50rem;
+	max-width: 80rem;
 	margin: auto;
 	font-weight: 100;
 	line-height: 1.6;
@@ -225,7 +225,7 @@ body {
 	display: flex;
 	margin-top: 5rem;
 	justify-content: center;
-	/* flex-wrap: wrap; */
+	flex-wrap: wrap;
 }
 
 .menu .row .menu-card {
@@ -234,11 +234,33 @@ body {
 
 .menu .row .menu-card img {
 	border-radius: 50%;
-	width: 80%;
+	width: 20%;
 }
 
 .menu .row .menu-card .menu-card-title {
 	margin-top: 1.5rem auto 0.5rem;
+}
+
+.btn-block {
+	max-width: 10rem;
+	background: white;
+	text-align: center;
+	display: inline-block;
+	padding: 1rem 1rem;
+	font-size: 1rem;
+	border-radius: 1rem;
+}
+
+.btn-block:hover {
+	background-color: #d65555;
+	border-style: solid;
+	color: rgb(10, 26, 26);
+	transition: 0.3s;
+}
+
+.btn-order {
+	color: white;
+	text-decoration: none;
 }
 
 /* menu end  */

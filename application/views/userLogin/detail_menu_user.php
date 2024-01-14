@@ -32,12 +32,7 @@
                                            <td> <?php echo $pesan->id_pesanan?> </td> 
                                             <td>
                                              <?php echo $pesan->nama_pelanggan?>
-                                            <br>
-                                            <?php if($pesan->Status_bayar == 1) {?>
-                                            <p class="badge badge-success" > Sudah bayar</p>
-                                            <?php } else{?>
-                                            <p class="badge badge-danger"> Belum bayar</p>
-                                            <?php  }?>
+
                                             </td>
                                             <td>
                                             <p class="badge badge-dark"><?php echo $pesan->no_meja?></p> <br>

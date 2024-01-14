@@ -17,3 +17,4 @@
 
 <!-- style saya -->
 <link rel="stylesheet" href="<?= base_url('assets'); ?>/css/style3.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins2/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">

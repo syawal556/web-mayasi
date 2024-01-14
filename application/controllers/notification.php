@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Notification extends CI_Controller {
+class Notification extends CI_Controller
+ {
 
 	/**
 	 * Index Page for this controller.
@@ -39,9 +40,11 @@ class Notification extends CI_Controller {
 		$data = [
 			'status_code' => $result['status_code']
 		];
-		if ($result['status_code'] == 200) {
+		if ($result['status_code'] == 200) 
+		{
 			$this->db->update('tbl_pesanan', $data, array('order_id'=> $order_id));
 		}
+	}
 
 
 
@@ -89,5 +92,5 @@ class Notification extends CI_Controller {
 		  echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is denied.";
 		}*/
 
-	}
 }
+

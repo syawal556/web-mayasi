@@ -13,7 +13,7 @@
 
 
   <!-- my java script -->
-<script src="<?= base_url('assets'); ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- <script src="<?= base_url('assets'); ?>/plugins2/sweetalert2/sweetalert2.min.js"></script>
 <script>
   $(function() {
     var Toast = Swal.mixin({
@@ -30,8 +30,8 @@
       })
     });
 });
+</script> -->
 
-</script>
 <script src="<?= base_url('assets'); ?>/js/script.js?v=<?php echo time(); ?>">
 
 </script>

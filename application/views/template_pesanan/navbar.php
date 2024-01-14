@@ -11,7 +11,7 @@
 
     <div class="navbar-extra" align="right">
     <a href="#" id="humburger-menu"><i data-feather="menu"></i></a>
-        <li data-aos="fade-down" data-aos-duration="1000">
+        <li data-aos="fade-down" data-aos-duration="1000" data-toggle="modal" data-target="#exampleModal">
             <h1>
             <?php 
               $daftar = "Klik Disini: ".$this->cart->total_items().  " Detail Pesanan"

@@ -28,7 +28,7 @@
     <div class="navbar-nav" data-aos="fade-down" data-aos-duration="2000">
     <a href="#home">Home</a>
     <!-- <a href="#about">About</a> -->
-    <a href="<?= base_url('/Auth/daftarMenu'); ?>">Menu Kita</a>
+    <a href="<?= base_url('/Auth/daftar_menu'); ?>">Menu Kita</a>
     <a href="#contact">Kontak Kita</a>
 
     
@@ -104,32 +104,18 @@
         sesuai dengan dompet anak muda beli sekarang akan mendapatkan diskon 
     </p>
     <div class="row">
+        <?php foreach ($daftarMenu as $daftar) : ?>
         <div class="menu-card">
-            <img src="<?= base_url('assets'); ?>/img/menu/menu2.jpg"
+        <img src="<?php echo base_url().'/uploads/'. $daftar->gambar ?>" class="img"
             alt="sandwich" class="menu-card-img">
-            <h3 class="menu-card-title">--sandwich--</h3>
-            <p class="menu-card-price"> IDR 20k</p>
+            <h3 class="menu-card-title"><?php echo $daftar->nama_menu ?></h3>
+            <h3 class="menu-card-title"><?php echo $daftar->keterangan ?></h3>
+            <p class="menu-card-price"> IDR <?php echo number_format($daftar->harga_menu, 0,',','.')  ?></p>
+            <div class="btn-block">
+                <a href="<?= base_url('Auth/pesanan/'.$daftar->id); ?>" class="btn-order"> <span class="span">Order</span> </a>
+            </div>
+            <?php endforeach; ?>
         </div>
-        <div class="menu-card">
-            <img src="<?= base_url('assets'); ?>/img/menu/menu3.jpg"
-            alt="sandwich" class="menu-card-img">
-            <h3 class="menu-card-title">--coffee spesial--</h3>
-            <p class="menu-card-price"> IDR 15k</p>
-        </div>
-        <div class="menu-card">
-            <img src="<?= base_url('assets'); ?>/img/menu/menu4.jpg"
-            alt="sandwich" class="menu-card-img">
-            <h3 class="menu-card-title">--Burger</h3>
-            <p class="menu-card-price"> IDR 20k</p>
-        </div>
-        <div class="menu-card">
-            <img src="<?= base_url('assets'); ?>/img/menu/menu06.jpg"
-            alt="sandwich" class="menu-card-img">
-            <h3 class="menu-card-title">--spagetty spesial--</h3>
-            <p class="menu-card-price"> IDR 15k</p>
-        </div>
-      
-    </div>
 </section> -->
 
 <!-- menu section end -->
@@ -164,7 +150,7 @@
 <!-- footerstart -->
  <footer>
     <div class="socials">
-        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="https://www.instagram.com/waroengmayasi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="target="_blank"><i data-feather="instagram"></i></a>
         <a href="#"><i data-feather="twitter"></i></a>
         <a href="#"><i data-feather="facebook"></i></a>
 
@@ -172,13 +158,12 @@
 
     <div class="links">
         <a href="#home">Home</a>
-        <a href="#about">Tentang Kita</a>
         <a href="#menu">Menu Kita</a>
         <a href="#contact">Kontak</a>
     </div>
 
     <div class="credit">
-        <P> create by syawal <a href="">sawaludin</a>. | &copy; 2023</P>
+        <P> Create by Waroeng Mayasi <a href=""></a>. | &copy; 2023</P>
     </div>
 
  </footer>

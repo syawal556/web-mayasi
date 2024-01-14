@@ -10,17 +10,17 @@
              <div class="card-header text-center">
                     <h3> Detail Pesanan Customer</h3>
             <div align="center">
-                <div class="btn btn-dark btn-sm mb-2 mr-2 "> Nomor meja : <?php echo $invoice->no_meja ?></div>
-                <div class="btn btn-dark btn-sm mb-2 mr-2"> Nama Customer : <?php echo $invoice->nama_pelanggan ?></div>
-                <?php if($invoice->Status_bayar == 1) {?>
-                <p class="btn btn-success btn-sm mb-2 mr-2" > Status bayar : Sudah bayar</p>
+                <div class="badge badge-dark btn-sm mb-2 mr-2 "> Nomor meja : <?php echo $invoice->no_meja ?></div>
+                <div class="badge badge-dark btn-sm mb-2 mr-2"> Nama Customer : <?php echo $invoice->nama_pelanggan ?></div>
+                <!-- <?php if($invoice->Status_bayar == 1) {?>
+                <p class="badge badge-success btn-sm mb-2 mr-2" > Status bayar : Sudah bayar</p>
                 <?php } else{?>
-                <p class="btn btn-danger btn-sm mb-2 mr-2"> Status Bayar : Belum bayar</p>
-                <?php  }?>
+                <p class="badge badge-danger btn-sm mb-2 mr-2"> Status Bayar : Belum bayar</p>
+                <?php  }?> -->
                 
              </div>    
         </div>    
-        <div class="btn btn-success btn-sm mb-2 mr-2"> Catatan Pesanan : <?php echo $invoice->catatan?></div>
+        <div class="badge badge-success btn-sm mb-2 mr-2"> Catatan Pesanan : <?php echo $invoice->catatan?></div>
 <tr>
         <!-- <th>Id Menu</th> -->
         <th>Nama Menu</th>
@@ -51,8 +51,8 @@
     </tr>
 </table>
 <div align="right">
-    <a href="<?= base_url('Login_user/index_menu'); ?>"class="btn btn-warning btn-sm mb-3"><i data-feather=""></i>kembali</a>
-    <?php echo anchor ('Login_user/user_proses_pesanan/'.$invoice->id_pesanan, ' <div class="btn btn-primary btn-sm mr-3 mb-3" ><i data-feather="arrow-right-circle"></i> Proses Pesanan</div>') ?>
+    <a href="<?= base_url('Auth/struk_admin/'.$invoice->id_pesanan); ?>" class="btn btn-success btn-sm"><i data-feather="printer"></i> Proses</a>
+    <a href="<?= base_url('Login_user/index_menu'); ?>"class="btn btn-warning btn-sm"><i data-feather=""></i>kembali</a>
 </div> 
         </div>
      </div>

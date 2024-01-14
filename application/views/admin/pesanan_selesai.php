@@ -28,13 +28,13 @@
                                     </tfoot>
                                     <tbody>
                                        
-                                     <?php foreach($telah_diproses as $pesan):?>
+                                     <?php foreach($telah_diproses_user as $pesan):?>
                                     <tr>
                                         <td><?php echo $pesan->id_pesanan?></td>
                                         <td><?php echo $pesan->nama_pelanggan?></td>
                                         <td><?php echo date('d/m/Y H:i:s', strtotime ($pesan->tgl_pesan)) ?></td>
                                         <td>
-                                        <?php if($pesan->Status_bayar == 1) {?>
+                                        <?php if($pesan->Status_bayar == 5) {?>
                                         <p class="badge badge-info" > Sudah bayar</p>
                                         <?php } else{?>
                                         <p class="badge badge-danger"> Belum bayar</p>
@@ -50,8 +50,9 @@
                                         <p class="badge badge-info"><?php echo $pesan->no_meja?></p> 
                                         </td>
                                         <td> 
-                                        <!-- <?php echo anchor ('Pesanan/detail_pesanan/'.$pesan->id_pesanan, ' <div class="btn btn-dark btn-sm"><i data-feather="chevrons-up"></i>Detail</div>') ?> -->
-                                        <?php echo anchor ('Auth/struk_admin/'.$pesan->id_pesanan, ' <div class="btn btn-success btn-sm" ><i data-feather="printer"></i></div>') ?>
+
+                                        <?php echo anchor ('Pesanan/validasi_pembayaran/'.$pesan->id_pesanan, ' <div class="btn btn-dark btn-sm"><i data-feather="chevrons-up"></i>Detail</div>') ?>
+                                    
                                     </td>
                                     </tr>
                                         <?php endforeach; ?>

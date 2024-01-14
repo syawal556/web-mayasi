@@ -12,7 +12,8 @@
                                         <th>Nama Customer</th>
                                         <th>Nomor Meja</th>
                                         <th>Tanggal Pesanan</th>
-                                        <th>Status bayar</th>
+                                        <th>Detail</th>
+                                
                                       
                                         <!-- <th>Aksi</th> -->
                                         </tr>
@@ -23,7 +24,7 @@
                                         <th>Nama Customer</th>
                                         <th>Nomor Meja</th>
                                         <th>Tanggal Pesanan</th>
-                                        <th>Status bayar</th>
+                                        <th>Detail</th>
                                         
                                         <!-- <th>Aksi</th> -->
                                         </tr>
@@ -38,21 +39,18 @@
                                         <p class="badge badge-info"><?php echo $pesan->no_meja?></p> 
                                         </td>
                                         <td><?php echo $pesan->tgl_pesan?></td>
-                                        <td>
+                                        <!-- <td>
                                         <?php if($pesan->Status_bayar == 1) {?>
                                         <p class="badge badge-success" > Transfer</p>
                                         <?php } else{?>
                                         <p class="badge badge-danger"> Bayar Tunai</p>
                                         <?php  }?>
-                                        </td>
-                                        
+                                        </td> -->
                                         <td> 
-                                        <!-- <?php echo anchor ('Pesanan/detail_pesanan/'.$pesan->id_pesanan, ' <div class="btn btn-dark btn-sm"><i data-feather="chevrons-up"></i>Detail</div>') ?> -->
-                                        <!-- <?php echo anchor ('Auth/struk_admin/'.$pesan->id_pesanan, ' <div class="btn btn-success btn-sm" ><i data-feather="printer"></i></div>') ?> -->
+                                        <?php echo anchor ('Login_user/cek_status/'.$pesan->id_pesanan, ' <div class="btn btn-success btn-sm" >Detail</div>') ?>
                                     </td>
                                     </tr>
-                                        <?php endforeach; ?>
-                                       
+                                        <?php endforeach; ?>  
                                      <tbody>
                              </table>
                         </div>

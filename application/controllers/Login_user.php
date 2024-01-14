@@ -91,7 +91,7 @@ class Login_user extends CI_Controller
              );
              $this->Model_invoice->pesanan_status($data);
              $this->session->set_flashdata('message','<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                 <strong>Success!</strong> Pesanan Telah Diproses, Mohon teliti untuk Memproses Pesanan pelanggan!!!.
+                 Mohon Teliti saat Memproses Pesanan Konsumen!!!!
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                    <span aria-hidden="true">&times;</span>
                  </button>
@@ -116,6 +116,22 @@ class Login_user extends CI_Controller
         $this->load->view('templates_user/footer');
 
 
+    }
+
+    public function cek_status($id_pesanan)
+    {
+        $data['invoice'] = $this->Model_invoice->ambil_id_pesanan($id_pesanan);
+        $data['detail'] = $this->Model_invoice->ambil_id_detail($id_pesanan);
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();    
+        $data['title'] ='Detail Pesanan';
+        $this->load->view('templates_user/header', $data);
+        $this->load->view('templates_user/sidebar', $data);
+        $this->load->view('templates_user/topbar', $data);
+        $this->load->view('userLogin/cek_pesanan', $data); 
+        $this->load->view('templates_user/footer');
+
+       
     }
 
 }       

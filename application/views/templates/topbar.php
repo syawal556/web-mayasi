@@ -13,7 +13,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-
+                
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -48,7 +48,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['name']; ?></span>
                                 <img class="img-profile rounded-circle"
-                                src="<?= base_url('assets/img-menu/caffe-misto.jpg'); ?>" width="100">
+                                src="<?= base_url('assets/img/admin.jpg'); ?>" width="100">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
