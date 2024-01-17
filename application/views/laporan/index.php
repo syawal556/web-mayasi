@@ -151,3 +151,12 @@
 </div>
 </div>
 
+<style>
+        @media print{
+            .btn {
+                display: none;
+            }
+        }
+
+</style>
+

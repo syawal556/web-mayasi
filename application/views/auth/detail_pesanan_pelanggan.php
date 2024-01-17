@@ -39,7 +39,7 @@
                 <td style="text-align:right">Rp. <?php echo number_format($items['price'], 0,',','.'); ?></td>
                 <td style="text-align:right">Rp. <?php echo number_format($items['subtotal'], 0,',','.'); ?></td>
                 <td class="text-right">
-                    <a href="<?= base_url('Auth/delete/' . $items['rowid']) ?>" class="btn btn-warning btn-sm"><i data-feather="delete"></i></a>
+                    <a href="<?= base_url('Auth/delete/' . $items['rowid']) ?>" class="btn btn-warning btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus menu ini?')"><i data-feather="delete"></i></a>
 
                 </td>
         </tr>
@@ -60,20 +60,17 @@
 </div>
 </p>
 <button type="submit" class="btn btn-success btn-flat btn-sm mb-3"  ><i data-feather="plus-circle"></i> Update Pesanan</button>
-<a href="<?= base_url('Auth/clear'); ?>" class="btn btn-danger btn-flat btn-sm mb-3" onclick="return confirm('Apakah anda yakin akan menghapus semua pesanan?')"><i data-feather="trash-2"></i> Hapus semua pesanan</a>
 <a href="" class="btn btn-info btn-flat btn-sm mb-3" data-toggle="modal" data-target="#exampleModal1">Tambah Pesanan</a>
 <a href="<?= base_url('auth/pembayaran'); ?>" class="btn btn-primary btn-flat btn-sm mb-3" data-toggle="modal" data-target="#exampleModal"><i data-feather="check-circle"></i> Proses pesanan</a>
 <?php echo form_close(); ?>
 <br>
 <h4 class="mt-3">Ketentuan:</h4>
 <span> - Silahkan klik tombol update pesanan untuk menambahkan jumlah QTY pesanan yang diinginkan</span>
-<br> 
-<span> - Tombol Hapus Semua Pesanan akan otomatis Mengahpus Semua total dan jumlah Pesanan</span>
 <br>
 <span> - Untuk menghapus Salah Satu Pesanan Maka Pilih tombol icon hapus</span>
 
 
-
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
@@ -112,20 +109,22 @@
              <h5 class="text-center"> Silahkan Masukan Nama dan Nomor Meja anda</h5>
              <?= $this->session->flashdata('message'); ?>
              <form method="post" action="<?= base_url('Auth/proses_pesanan'); ?>">
-            <div class="form-group">
+            <div class="form-group text-left">
+              <label for="nama_pelanggan"> Nama </label>
              <input type="text" class="form-control form-control-user" id="nama_pelanggan" name="nama_pelanggan"
                 placeholder="Masukan nama anda" required>
                 </div>
-            <div class="form-group">
-             <input type="text" class="form-control form-control-user" id="no_meja" name="no_meja"
+            <div class="form-group text-left">
+              <label for="np_meja"> Nomor Meja</label>
+             <input type="number" maxlength="10" min="1" class="form-control form-control-user" id="no_meja" name="no_meja"
                 placeholder="Meja tampat duduk anda" required>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 text-left">
                  <label for="exampleFormControlTextarea1" class="form-label">Catatan Pesanan (optional) <br>Jika Tidak ada Tambahakan tanda strip -</label>
                  <textarea class="form-control" id="catatan" name="catatan"  placeholder="catatan pesanan" rows="3"value="<?= set_value('catatan'); ?>"></textarea>
                  </div>
                 <a href="<?= base_url('Auth/menu_utama'); ?>" class="btn btn-danger btn-sm mb-3">Batal</a>
-                <button type="submit" class="btn btn-success btn-sm mb-3">Pesan</button>
+                <button type="submit" class="btn btn-success btn-sm mb-3" onclick="return confirm('Apakah Nama dan Nomor Meja Anda sudah sesuai?')">Pesan</button>
             </form>
                   </div>
                   </div>
@@ -173,7 +172,11 @@
         <div class="card-body">
         <h5 class="card-title"><?php echo $daftar->nama_menu ?></h5>
         <p class="card-text"><?php echo $daftar->keterangan ?></p>
-        <a href="<?= base_url('Auth/Tambah_pesanan/'.$daftar->id); ?>" class="btn btn-primary">Pesan</a>
+        <?php if($daftar->status_menu == 1 ) {?>
+          <h4> Habis </h4>
+         <?php } else{?>
+          <a href="<?= base_url('Auth/Tambah_pesanan/'.$daftar->id); ?>" class="btn btn-primary">Pesan</a>
+         <?php  }?> 
         </div>
         <?php endforeach; ?>
         </div>
@@ -184,5 +187,3 @@
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
-  </div>
-</div>

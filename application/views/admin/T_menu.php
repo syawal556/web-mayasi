@@ -14,14 +14,6 @@
                             <input type="text" class="form-control" id="nama_menu" name="nama_menu"
                                 placeholder="Masukan Nama Menu" value="<?= set_value('nama_menu'); ?>" required auotofocus>   
                         </div>
-                        <div class="form-group">
-                                <select name="kategori" id="kategori" class="form-control">
-                                    <option value="<?= set_value('kategori');?>">--Kategori Menu--</option>
-                                    <option>Makanan</option>
-                                    <option >Minuman</option>
-                                    <option >Cemilan</option>
-                             </select>    
-                        </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Menu</label>
                             <textarea class="form-control" id="keterangan" name="keterangan" rows="3"value="<?= set_value('keterangan'); ?>"></textarea>

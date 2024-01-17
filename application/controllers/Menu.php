@@ -116,6 +116,83 @@ class Menu extends CI_Controller
 
     }
 
+    public function do_input()
+     {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('nama_menu', 'Nama Menu', 'required');
+        $this->form_validation->set_rules('harga_menu', 'Harga Menu', 'required|numeric');
+        $this->form_validation->set_rules('keterangan', 'Keterangan', 'max_length[500]');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('input_menu_form');
+        }
+        else {
+            $config['upload_path']          = './uploads/';
+            $config['allowed_types']        = 'gif|jpg|jpeg|png';
+            $config['max_size']             = 2048; // in KB
+            $config['max_width']            = 2000;
+            $config['max_height']           = 2000;
+
+            $this->load->library('upload', $config);
+
+            if ( ! $this->upload->do_upload('gambar')) {
+                $error = array('error' => $this->upload->display_errors());
+                $this->load->view('input_menu_form', $error);
+            }
+            else {
+                $data = array(
+                    'nama_menu' => $this->input->post('nama_menu'),
+                    'harga_menu' => $this->input->post('harga_menu'),
+                    'keterangan' => $this->input->post('keterangan'),
+                    // 'kategori' =>$this->input->post('kategori'),
+                    'gambar' => $this->upload->data('file_name'),
+                );
+                $this->db->insert('daftar_menu', $data);
+                $this->session->set_flashdata('message','<div class="alert alert-success alert-dismissible fade show" role="alert" text-center>
+                <strong>Success!</strong> Menu Berhasil Ditambahkan!!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                </div>');
+                redirect('Menu');
+               
+            }
+        }
+    }
+
+    public function nonaktif_menu($id)
+    {
+        $data = array(
+            'id' => $id,
+            'status_menu' => 1,
+        );
+        $this->Model_invoice->no_fungsi_menu($data);
+        $this->session->set_flashdata('message','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                 Menu Telah Dinonaktifkan
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+                 </div>');
+        redirect('Menu');
+    }
+
+    public function aktifkan_menu($id)
+    {
+        $data = array(
+            'id' => $id,
+            'status_menu' => 2,
+        );
+        $this->Model_invoice->jalankan_menu($data);
+        $this->session->set_flashdata('message','<div class="alert alert-success alert-dismissible fade show" role="alert">
+                 Menu Telah Diaktifkan
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+                 </div>');
+        redirect('Menu');
+
+    }
 
 }
 

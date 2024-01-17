@@ -39,7 +39,12 @@
                                             </td>
                                             <td><?php echo $pesan->tgl_pesan?></td>
                                             <td> 
-                                            <?php echo anchor ('Login_user/detail_pesanan_user/'.$pesan->id_pesanan, ' <div class="btn btn-sm btn-info">Detail Pesanan</div>') ?>
+                                            <?php if($pesan->order_id == 0 ) {?>
+                                               <div class="badge badge-danger"> Belum Diapprove</div>
+                                            <?php } else{?>
+                                                <a href="<?= base_url('Login_user/detail_pesanan_user/'.$pesan->id_pesanan); ?>" class="btn btn-sm btn-info">Detail Pesanan</a>
+                                            <?php  }?> 
+                                          
                                             </td>
                                         </tr>
                                             <?php endforeach; ?>

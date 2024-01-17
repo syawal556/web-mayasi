@@ -41,7 +41,7 @@
                           <h5> Nama Customer  : <?php echo $invoice->nama_pelanggan ?></h5>
                             
                           <h5> Tanggal Pesanan    : <?php echo $invoice->tgl_pesan ?></h5>
-                          <?php if($invoice->order_id == 0) {?>
+                          <?php if($invoice->order_id == 1) {?>
                     <h5> Status bayar : Bayar Tunai</h5>
                     <?php } else{?>
                         <h5> Status bayar : Lunas</h5>
@@ -118,6 +118,15 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
+
+    <style>
+        @media print{
+            .btn {
+                display: none;
+            }
+        }
+
+    </style>
 
 </body>
 

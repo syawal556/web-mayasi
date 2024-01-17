@@ -8,7 +8,7 @@
                                     <thead class="table table-dark table-hover">
                                         <tr>
                                         <th>ID pesanan</th>
-                                        <th>ID Bayar</th>
+                                        <!-- <th>ID Bayar</th> -->
                                         <th>Nama Customer</th>
                                         <th>Tanggal Pesanan</th>
                                         <th>Status Order</th>
@@ -19,7 +19,7 @@
                                     <tfoot>
                                         <tr>
                                         <th>ID pesanan</th>
-                                        <th>ID Transfer</th>
+                                        <!-- <th>ID Transfer</th> -->
                                         <th>Nama Customer</th>
                                         <th>Tanggal Pesanan</th>
                                         <th>Status Order</th>
@@ -31,7 +31,7 @@
                                      <?php foreach($belum_bayar as $pesan):?>
                                     <tr>
                                         <td><?php echo $pesan->id_pesanan?></td>
-                                        <td>
+                                        <!-- <td>
                                         <?php if($pesan->order_id == 0) {?>
                                         <p class="badge badge-dark" >Bayar Tunai</p>
                                         <?php } else{?>
@@ -39,7 +39,7 @@
                                               <?= $pesan->order_id; ?>
                                               </div> 
                                         <?php  }?>
-                                        </td>
+                                        </td> -->
                                         <td class="h5 text-gray-900"><?php echo $pesan->nama_pelanggan?></td>
                                         <td><?php echo $pesan->tgl_pesan?></td>
                                         <td>
@@ -49,19 +49,24 @@
                                         <p class="badge badge-danger">Belum bayar</p>
                                         <?php  }?> 
                                         <br>
-                                         <?php if($pesan->status_pesanan == 0) {?>
-                                        <p class="badge badge-dark" > Belum Diproses </p>
-                                        <?php } else{?>
-                                        <p class="badge badge-success">Sudah diproses</p>
-                                        <?php  }?>
-                                       
+                                        
                                         </td>
                                         <td>
                                         <p class="badge badge-info"><?php echo $pesan->no_meja?></p> 
                                         </td>
                                         <td> 
-                                        <?php echo anchor ('Pesanan/detail_pesanan/'.$pesan->id_pesanan, ' <div class="btn btn-primary btn-sm"><i data-feather="chevrons-up"></i>Detail</div>') ?>
-                                        <a href="<?= base_url('pesanan/pesanan_batal/'.$pesan->id_pesanan); ?>" class=" btn btn-danger btn-sm" onclick="return confirm('Apakan anda yakin akan menghapus data ini?')"><i data-feather="chevrons-up">Batal</i></a>
+                                        <?php echo anchor ('Pesanan/detail_pesanan/'.$pesan->id_pesanan, ' <div class="btn btn-primary btn-sm"><i data-feather="eye"></i></div>') ?>
+                                        <?php if($pesan->order_id == 0) {?>
+                                            <a href="<?= base_url('Pesanan/pesanan_batal/'.$pesan->id_pesanan); ?>" class=" btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan membatalkan pesanan ini?')"><i data-feather="delete"></i></a>
+                                        <?php } else{?>
+                                        
+                                        <?php  }?>
+                                        <?php if($pesan->order_id == 0) {?>
+                                            <a href="<?= base_url('Pesanan/konfirmasi_pesanan/'.$pesan->id_pesanan); ?>" class=" btn btn-success btn-sm" onclick="return confirm('Apakah anda yakin ingin aprrove pesanan ini?')">Approve</a>
+                                        <?php } else{?>
+                                        
+                                        <?php  }?>
+                                      
                                     </td>
                                     </tr>
                                         <?php endforeach; ?>
@@ -70,6 +75,9 @@
                              </table>
                         </div>
                         </div>
+
+
+                        
 
 
 

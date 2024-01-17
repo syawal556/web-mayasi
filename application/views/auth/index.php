@@ -28,7 +28,7 @@
     <div class="navbar-nav" data-aos="fade-down" data-aos-duration="2000">
     <a href="#home">Home</a>
     <!-- <a href="#about">About</a> -->
-    <a href="<?= base_url('/Auth/daftar_menu'); ?>">Menu Kita</a>
+    <a href="<?= base_url('Auth/daftarMenu'); ?>">Menu Kita</a>
     <a href="#contact">Kontak Kita</a>
 
     
@@ -57,7 +57,7 @@
                 <h1>Mari Mengawali Hari Mu Dengan <span>Waroeng Mayasi</span></h1>
                 <p>"Waroeng mayasi siap untuk memberikan santapan dan hidangan penambah semangat utnuk mengawali harimu"
                 </p>
-                <a href="<?= base_url('/Auth/daftarMenu'); ?>" class="cta">Pesan Makanan</a>
+                <a href="<?= base_url('Auth/daftarMenu'); ?>" class="cta">Pesan Makanan</a>
                 <!-- <a href="<?= base_url('Konsumen'); ?>" class="btn btn-primary">login konsumen</a> -->
             </main>
 <!-- heroend end -->
@@ -122,11 +122,11 @@
 
 <!-- contact section -->
     <section id="contact" class="contact">
-        <h2> <span>  kontak kami</span></h2>
-        <p> untuk kritik dan saran nya silahkan hubungin kontak kami disini</p>
+        <h2> <span>Lokasi Kami</span></h2>
+        <p> Cek Alamat Kami Di Google Maps ini</p>
         <div class="row">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8176043648855!2d109.31479387383742!3d-0.03432503553678327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d58e295f12c7b%3A0xad9b7bdad6f30994!2sWaroeng%20Mayasi!5e0!3m2!1sid!2sid!4v1699935368112!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
-            <form action="#">
+            <!-- <form action="#">
                 <div class="input-group">
                     <i data-feather="users"></i>
                     <input type="text" placeholder="Nama"> 
@@ -140,7 +140,7 @@
                     <input type="text" placeholder="Nomor Handphone"> 
                 </div>
                 <button type="submit" class="btn"> kirim pesan anda</button>
-            </form>
+            </form> -->
         </div>
 
     </section>

@@ -50,6 +50,7 @@ class Pesanan extends CI_Controller
     public function detail_pesanan($id_pesanan)
     {
         $data['invoice'] = $this->Model_invoice->ambil_id_pesanan($id_pesanan);
+        $data ['pesanan'] = $this->Model_invoice->tampil_data();
         $data['detail'] = $this->Model_invoice->ambil_id_detail($id_pesanan);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();    
@@ -138,7 +139,21 @@ class Pesanan extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-
+    public function konfirmasi_pesanan($id_pesanan)
+    {
+        $data = array(
+            'id_pesanan' => $id_pesanan,
+            'order_id' => 1,
+        );
+        $this->Model_invoice->acc_pesanan($data);
+        $this->session->set_flashdata('message','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Success!</strong> Pesanan Telah DiKonfirmasi!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>');
+            redirect('Pesanan');
+    }
     
 
 

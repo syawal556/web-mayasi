@@ -11,20 +11,20 @@
         <h4 class="nama"><?php echo $daftar->keterangan ?></h4>
         <h2 class="harga">Rp. <?php echo number_format($daftar->harga_menu, 0,',','.')  ?></h2>
         <br>
-        <?php if($daftar->harga_menu == 0) {?>
+        <?php if($daftar->status_menu == 1 ) {?>
           <div class="btn-block">
-            <a href="" class="btn-order"> <span class="span">Order</span> </a>
+          <h1> Habis </h1>
         </div>
          <?php } else{?>
-          <!-- <div class="btn-block">
-          <a href="<?= base_url('Auth/pesanan/'.$daftar->id); ?>" class="btn-order"> <span class="span">Order</span> </a> -->
+          <div class="btn-block">
+          <a href="<?= base_url('Auth/pesanan/'.$daftar->id); ?>" class="btn-order"> <span class="span">Order</span> </a>
         </div>
          <?php  }?> 
         <!-- <div class="btn-block">
             <button type="button" class="btn btn-success swalDefaultSuccess" class="btn-order"> <span class="span">Order</span> </button>
         </div> -->
-        <div class="btn-block">
-            <a href="<?= base_url('Auth/pesanan/'.$daftar->id); ?>" class="btn-order"> <span class="span">Order</span> </a>
+        <!-- <div class="btn-block">
+            <a href="<?= base_url('Auth/pesanan/'.$daftar->id); ?>" class="btn-order"> <span class="span">Order</span> </a> -->
         </div>
     </div>
 </div>

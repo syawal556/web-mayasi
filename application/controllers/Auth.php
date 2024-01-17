@@ -103,7 +103,7 @@ class Auth extends CI_Controller
         $i++;
      } 
      $this->session->set_flashdata('message','<div class="alert alert-success alert-dismissible fade show" role="alert" text-center>
-                <strong>Success!</strong> Pesanan Telah bertambah.
+                <strong>Success!</strong> Qty Pesanan telah Diubah
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -150,7 +150,7 @@ class Auth extends CI_Controller
         if($is_processed) {
             $this->cart->destroy();
             $this->session->set_flashdata('message','<div class="alert alert-danger alert-dismissible fade show" role="alert" text-center>
-                Pesanan Telah Diterima, Mohon Tunggu Pelayan Menghampiri Anda!!!.
+                Pesanan Telah Diterima !
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>

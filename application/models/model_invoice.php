@@ -88,12 +88,27 @@ class Model_invoice extends CI_Model
         $this->db->where('id_pesanan', $data['id_pesanan']);
         $this->db->update('tbl_pesanan', $data);
     }
+    public function acc_pesanan($data)
+    {
+        $this->db->where('id_pesanan', $data['id_pesanan']);
+        $this->db->update('tbl_pesanan', $data);
+    }
 
 
     public function update_struk($data)
     {
         $this->db->where('id_pesanan', $data['id_pesanan']);
         $this->db->update('tbl_pesanan', $data);
+    }
+    public function no_fungsi_menu($data)
+    {
+        $this->db->where('id', $data['id']);
+        $this->db->update('daftar_menu', $data);
+    }
+    public function jalankan_menu($data)
+    {
+        $this->db->where('id', $data['id']);
+        $this->db->update('daftar_menu', $data);
     }
 
 

@@ -113,6 +113,15 @@
 
     </script>
 
+<style>
+        @media print{
+            .btn {
+                display: none;
+            }
+        }
+
+    </style>
+
 </body>
 
 </html>

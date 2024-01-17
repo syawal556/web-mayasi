@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
         <input type="text" class="form-control form-control-user"
-          id="email" name="email" placeholder="Email"value="<?= $tmp->email ?>">
+          id="email" name="email" placeholder="Email"value="<?= $tmp->email ?>" readonly>
           <?= form_error('email','<small class =" text-danger pl-3 ">','</small>'); ?>
         </div>
        <select name="akses_level" id="akses_level" class=" form-control">

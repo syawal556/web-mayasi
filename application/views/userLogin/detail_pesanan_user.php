@@ -8,7 +8,7 @@
         <div class="table-responsive">
             <table class="table table-bordered  table table-sm text-center">    
              <div class="card-header text-center">
-                    <h3> Detail Pesanan Customer</h3>
+                    <h3> Detail Pesanan </h3>
             <div align="center">
                 <div class="badge badge-dark btn-sm mb-2 mr-2 "> Nomor meja : <?php echo $invoice->no_meja ?></div>
                 <div class="badge badge-dark btn-sm mb-2 mr-2"> Nama Customer : <?php echo $invoice->nama_pelanggan ?></div>

@@ -108,56 +108,21 @@ class User extends CI_Controller
 
 
     public function edit_menu($id)
-    {
-        $id = $this->input->post('id');
-        $config['upload_path']   = './uploads/';
-        $config['allowed_types'] = 'png|jpg|gif|PNG|JPG|jpeg';
-        $config['max_size']      = 10000;
-        $config['max_width']     = 10000;
-        $config['max_height']    = 10000;
-
-        $this->load->library('upload', $config);
-
-        if ( $this->upload->do_upload('userfile')) 
-        {
-            $gambar =  $this->upload->data();
-            $gambar = $gambar ['file_name'];
+    {   
+            $id = $this->input->post('id');
             $nama_menu  = $this->input->post('nama_menu', TRUE);
             $keterangan = $this->input->post('keterangan', TRUE);
             $harga_menu  = $this->input->post('harga_menu', TRUE);
+            $kategori   = $this->input->post('kategori', TRUE);
+
             $data = array(
+                'id'=> $id,
                 'nama_menu' => $nama_menu,
                 'keterangan' => $keterangan,
-                'gambar' => $gambar,
                 'harga_menu' => $harga_menu,
 
             );
-             $this->db->where('id', $id);
-             $this->db->update('daftar_menu', $data);
-             $this->session->set_flashdata('message','<div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Success!</strong> Menu berhasil di tambahkan!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            </div>');
-            redirect('Menu');
-        } 
-        else
-        {
-            $gambar =  $this->upload->data();
-            $gambar = $gambar ['file_name'];
-            $nama_menu  = $this->input->post('nama_menu', TRUE);
-            $keterangan = $this->input->post('keterangan', TRUE);
-            $harga_menu  = $this->input->post('harga_menu', TRUE);
-
-            $data = array(
-                'nama_menu' => $nama_menu,
-                'keterangan' => $keterangan,
-                'gambar' => $gambar,
-                'harga_menu' => $harga_menu,
-
-            );
-             $this->db->where('id', $id);
+            $this->db->where('id', $id);
              $this->db->update('daftar_menu', $data);
              $this->session->set_flashdata('message','<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Success!</strong> Menu berhasil di tambahkan!
@@ -167,10 +132,9 @@ class User extends CI_Controller
             </div>');
             redirect('Menu');
 
-        }
-        
     }
+        
 
-       
+    
 }
 ?>
